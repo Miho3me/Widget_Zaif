@@ -1,0 +1,23 @@
+{
+ "manifest_version": 2,
+ "name": "Widget_zaif",
+ "description": "ｺｲﾆﾊｯﾃﾝｼﾃ",
+ "version": "1",
+ "content_scripts": [
+ {
+    "matches": ["https://zaif.jp/*"],
+    "js": [
+      "html/scripts/jquery-3.2.1.min.js",
+      "html/scripts/content.js",
+      "html/scripts/wss/btc.js",
+      "html/scripts/wss/xem.js",
+      "html/scripts/wss/mona.js"
+    ],
+    "css":["html/css/style.css"],
+    "run_at": "document_end"
+ }
+ ],
+ "permissions":[
+   "storage"
+ ]
+}
