@@ -3,7 +3,7 @@
 }
 .widget{
   width:55px;
-  height:128px;
+  height:88px;
   padding:10px;
   font-size:60%;
   text-align:center;
@@ -22,4 +22,11 @@
 .widget p{
   margin:0;
   text-align: center;
+}
+.BitcoinCash .currency_logo{
+  height:30px;
+  width:50px;
+}
+.Ethereum .currency_logo{
+  width:30px;
 }
