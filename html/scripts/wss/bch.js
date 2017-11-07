@@ -3,7 +3,7 @@ new function() {
 	let connected_bch = false;
 
 	let open_bch = function() {
-		let url_bch = "wss://ws.zaif.jp/stream?currency_pair=bch_jpy"
+		let url_bch = "wss://ws.zaif.jp:8888/ws?currency_pair=bch_jpy"
 		ws_bch = new WebSocket(url_bch);
 		ws_bch.onopen = onOpen_bch;
 		ws_bch.onmessage = onMessage_bch;
@@ -34,8 +34,25 @@ new function() {
 
 	let addMessage_bch = function(data) {
     let ws_bchjson = JSON.parse(data);
-    $('#bch_price').empty();
-    $('#bch_price').append(ws_bchjson["last_price"].price+"円")
+		$('#bch_price').empty();
+		$('#bch_updown').empty();
+		$('#bch_last_price').empty();
+		$('#bch_price').append(ws_bchjson["last_price"].price_raw+"円");
+		let bch_percent = (1 - ws_bchjson["candles"]["1d"].open / ws_bchjson["last_price"].price_raw)*100
+		bch_percent = Math.floor( bch_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
+		if(/^([1-9]\d*|0)(\.\d+)?$/.test(bch_percent)){
+			$('#bch_updown').append("↑")
+			$('#bch_last_price').append(`+${bch_percent}%`)
+			$('#bch_color').css({"color":"blue"});
+		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(bch_percent)){
+			$('#bch_updown').append("↓")
+			$('#bch_last_price').append(bch_percent+"%")
+			$('#bch_color').css({"color":"red"});
+		}else if(bch_percent == 0){
+			$('#bch_updown').append("-")
+			$('#bch_last_price').append(bch_percent+"%")
+			$('#bch_color').css({"color":"green"});
+		}
 	}
 
 	WebSocketClient_bch = {

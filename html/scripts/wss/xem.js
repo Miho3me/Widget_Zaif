@@ -3,7 +3,7 @@ new function() {
 	let connected_xem = false;
 
 	let open_xem = function() {
-		let url_xem = "wss://ws.zaif.jp/stream?currency_pair=xem_jpy"
+		let url_xem = "wss://ws.zaif.jp:8888/ws?currency_pair=xem_jpy"
 		ws_xem = new WebSocket(url_xem);
 		ws_xem.onopen = onOpen_xem;
 		ws_xem.onmessage = onMessage_xem;
@@ -33,9 +33,26 @@ new function() {
 
 
 	let addMessage_xem = function(data) {
-    let ws_xemjson = JSON.parse(data);
-    $('#xem_price').empty();
-    $('#xem_price').append(ws_xemjson["last_price"].price+"円")
+		let ws_xemjson = JSON.parse(data);
+		$('#xem_price').empty();
+		$('#xem_updown').empty();
+		$('#xem_last_price').empty();
+		$('#xem_price').append(ws_xemjson["last_price"].price_raw+"円");
+		let xem_percent = (1 - ws_xemjson["candles"]["1d"].open / ws_xemjson["last_price"].price_raw)*100
+		xem_percent = Math.floor( xem_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
+		if(/^([1-9]\d*|0)(\.\d+)?$/.test(xem_percent)){
+			$('#xem_updown').append("↑")
+			$('#xem_last_price').append(`+${xem_percent}%`)
+			$('#xem_color').css({"color":"blue"});
+		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(xem_percent)){
+			$('#xem_updown').append("↓")
+			$('#xem_last_price').append(xem_percent+"%")
+			$('#xem_color').css({"color":"red"});
+		}else if(xem_percent == 0){
+			$('#xem_updown').append("-")
+			$('#xem_last_price').append(xem_percent+"%")
+			$('#xem_color').css({"color":"green"});
+		}
 	}
 
 	WebSocketClient_xem = {
