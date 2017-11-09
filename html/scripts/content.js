@@ -1,10 +1,10 @@
 let widget_n = 2;
 let currency_list = {
   "BTC":{"small":"btc","name":"bitcoin","url":"https://zaif.jp/trade_btc_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/bitcoin.png"},
-  "XEM":{"small":"xem","name":"NEM","url":"https://zaif.jp/trade_xe,_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/nem.png"},
+  "XEM":{"small":"xem","name":"NEM","url":"https://zaif.jp/trade_xem_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/nem.png"},
   "MONA":{"small":"mona","name":"Monacoin","url":"https://zaif.jp/trade_mona_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/Monacoin.png"},
   "BCH":{"small":"bch","name":"BitcoinCash","url":"https://zaif.jp/trade/bch_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/bch_logo.png"},
-  "ETH":{"small":"eth","name":"Ethereum","url":"https://zaif.jp/trade_eth_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/ethereum.png"},
+  "ETH":{"small":"eth","name":"Ethereum","url":"https://zaif.jp/trade/eth_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/ethereum.png"},
   "ZAIF":{"small":"zaif","name":"Zaif_token","url":"https://zaif.jp/trade/zaif_jpy","img":"https://pbs.twimg.com/profile_images/572797125616885760/SAPmSoLE_400x400.png"}
   }
 $(function(){
@@ -13,7 +13,7 @@ $(function(){
   </div>`);
   for(key in currency_list){
     $(".currency_table tr").append(`<td currency="${currency_list[key].name}" class="widget ${currency_list[key].name}td">
-      <a class="price ${currency_list[key].name}" href="currency_list[key].url}">
+      <a class="price ${currency_list[key].name}" href="${currency_list[key].url}">
         <img class="currency_logo" src="${currency_list[key].img}">
         <p class="name">BTC</p>
         <p id="${currency_list[key].small}_price">価格取得中...</p>
