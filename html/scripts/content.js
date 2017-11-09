@@ -15,7 +15,7 @@ $(function(){
     $(".currency_table tr").append(`<td currency="${currency_list[key].name}" class="widget ${currency_list[key].name}td">
       <a class="price ${currency_list[key].name}" href="${currency_list[key].url}">
         <img class="currency_logo" src="${currency_list[key].img}">
-        <p class="name">BTC</p>
+        <p class="name">${key}</p>
         <p id="${currency_list[key].small}_price">価格取得中...</p>
         <p id="${currency_list[key].small}_color"><span id="${currency_list[key].small}_updown"></span><span id="${currency_list[key].small}_last_price">準備中</span></p>
       </a>
