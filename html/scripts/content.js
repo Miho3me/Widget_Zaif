@@ -1,59 +1,25 @@
 let widget_n = 2;
-
+let currency_list = {
+  "BTC":{"small":"btc","name":"bitcoin","url":"https://zaif.jp/trade_btc_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/bitcoin.png"},
+  "XEM":{"small":"xem","name":"NEM","url":"https://zaif.jp/trade_xe,_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/nem.png"},
+  "MONA":{"small":"mona","name":"Monacoin","url":"https://zaif.jp/trade_mona_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/Monacoin.png"},
+  "BCH":{"small":"bch","name":"BitcoinCash","url":"https://zaif.jp/trade/bch_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/bch_logo.png"},
+  "ETH":{"small":"eth","name":"Ethereum","url":"https://zaif.jp/trade_eth_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/ethereum.png"},
+  "ZAIF":{"small":"zaif","name":"Zaif_token","url":"https://zaif.jp/trade/zaif_jpy","img":"https://pbs.twimg.com/profile_images/572797125616885760/SAPmSoLE_400x400.png"}
+  }
 $(function(){
   $("#header_message").after(`<div style="height:108px;padding:0px 10px 10px 10px" id="widget-ex">
-    <table align="center" class="currency_table" style="text-align: center">
-      <tr>
-        <td currency="bitcoin" class="widget bitcointd" >
-          <a class="bitcoin price" href="https://zaif.jp/trade_btc_jpy" >
-            <img class="currency_logo" src="https://raw.githubusercontent.com/Miho3me/widget_logo/master/bitcoin.png" style="width:50px;height:50px">
-            <p class="name">BTC</p>
-            <p id="btc_price">価格取得中</p>
-            <p id="btc_color"><span id="btc_updown"></span><span id="btc_last_price">準備中</span></p>
-          </a>
-        </td>
-        <td currency="NEM" class="widget nemtd" >
-          <a class="nem price" href="https://zaif.jp/trade_xem_jpy">
-            <img class="currency_logo" src="https://raw.githubusercontent.com/Miho3me/widget_logo/master/nem.png" style="width:50px;height:50px">
-            <p class="name">XEM</p>
-            <p id="xem_price">価格取得中</p>
-            <p id="xem_color"><span id="xem_updown"></span><span id="xem_last_price">準備中</span></p>
-          </a>
-        </td>
-        <td currency="Monacoin" class="widget monacointd" >
-          <a class="monacoin price" href="https://zaif.jp/trade_mona_jpy">
-            <img class="currency_logo" src="https://raw.githubusercontent.com/Miho3me/widget_logo/master/Monacoin.png" style="width:50px;height:50px">
-            <p class="name">MONA</p>
-            <p id="mona_price">価格取得中</p>
-            <p id="mona_color"><span id="mona_updown"></span><span id="mona_last_price">準備中</span></p>
-          </a>
-        </td>
-        <td currency="BitcoinCash" class="widget BitcoinCashtd" >
-          <a class="BitcoinCash price" href="https://zaif.jp/trade/bch_jpy">
-            <img class="currency_logo" src="https://raw.githubusercontent.com/Miho3me/widget_logo/master/bch_logo.png" style="width:50px;height:30px">
-            <p class="name">BCH</p>
-            <p id="bch_price">価格取得中</p>
-            <p id="bch_color"><span id="bch_updown"></span><span id="bch_last_price">準備中</span></p>
-          </a>
-        </td>
-        <td currency="Ethereum" class="widget Ethereumtd" >
-          <a class="Ethereum price" href="https://zaif.jp/trade/eth_jpy">
-            <img class="currency_logo" src="https://raw.githubusercontent.com/Miho3me/widget_logo/master/ethereum.png" style="width:50px;height:50px">
-            <p class="name">ETH</p>
-            <p id="eth_price">価格取得中</p>
-            <p id="eth_color"><span id="eth_updown"></span><span id="eth_last_price">準備中</span></p>
-          </a>
-        </td>
-        <td currency="zaif_token" class="widget zaif_tokentd" style="border-left:2px solid gray">
-          <a class="zaif_token price" href="https://zaif.jp/trade/zaif_jpy">
-            <img class="currency_logo" src="https://pbs.twimg.com/profile_images/572797125616885760/SAPmSoLE_400x400.png" style="width:50px;height:50px">
-            <p class="name">ZAIF</p>
-            <p id="zaif_price">価格取得中</p>
-            <p id="zaif_color"><span id="zaif_updown"></span><span id="zaif_last_price">準備中</span></p>
-          </a>
-        </td>
-      </tr>
-    </table>
+      <table align="center" class="currency_table" style="text-align: center"><tr></tr></table>
   </div>`);
-  $("#page__trade__chat_tab_link").text("価格一覧");
+  for(key in currency_list){
+    $(".currency_table tr").append(`<td currency="${currency_list[key].name}" class="widget ${currency_list[key].name}td">
+      <a class="price ${currency_list[key].name}" href="currency_list[key].url}">
+        <img class="currency_logo" src="${currency_list[key].img}">
+        <p class="name">BTC</p>
+        <p id="${currency_list[key].small}_price">価格取得中...</p>
+        <p id="${currency_list[key].small}_color"><span id="${currency_list[key].small}_updown"></span><span id="${currency_list[key].small}_last_price">準備中</span></p>
+      </a>
+    </td>`);
+    $(".Zaif_tokentd").css({"border-left":"2px solid gray"});
+  }
 })

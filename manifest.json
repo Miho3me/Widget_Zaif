@@ -1,8 +1,8 @@
 {
  "manifest_version": 2,
  "name": "Widget_zaif",
- "description": "version3 zaifトークンに対応しました。次バージョンでは通貨ごとの表示/非表示機能を実装予定です。",
- "version": "3",
+ "description": "version4-バグ修正。ver3にてzaifトークンに対応。次バージョンでは通貨ごとの表示/非表示機能を実装予定です。",
+ "version": "4",
  "content_scripts": [
  {
     "matches": ["https://zaif.jp/*"],
