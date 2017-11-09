@@ -2,7 +2,7 @@
  "manifest_version": 2,
  "name": "Widget_zaif",
  "description": "ｺｲﾆﾊｯﾃﾝｼﾃ",
- "version": "2",
+ "version": "3",
  "content_scripts": [
  {
     "matches": ["https://zaif.jp/*"],
@@ -13,7 +13,8 @@
       "html/scripts/wss/xem.js",
       "html/scripts/wss/mona.js",
       "html/scripts/wss/bch.js",
-      "html/scripts/wss/eth.js"
+      "html/scripts/wss/eth.js",
+      "html/scripts/wss/zaif.js"
     ],
     "css":["html/css/style.css"],
     "run_at": "document_end"

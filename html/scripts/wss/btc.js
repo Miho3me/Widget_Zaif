@@ -40,7 +40,11 @@ new function() {
     $('#btc_price').append(wsjson["last_price"].price_raw+"円");
 		let btc_percent = (1 - wsjson["candles"]["1d"].open / wsjson["last_price"].price_raw)*100
 		btc_percent = Math.floor( btc_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
-		if(/^([1-9]\d*|0)(\.\d+)?$/.test(btc_percent)){
+		if(btc_percent == 0){
+			$('#btc_updown').append("±")
+			$('#btc_last_price').append(btc_percent+"%")
+			$('#btc_color').css({"color":"green"});
+		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(btc_percent)){
 			$('#btc_updown').append("↑")
 			$('#btc_last_price').append(`+${btc_percent}%`)
 			$('#btc_color').css({"color":"blue"});
@@ -48,10 +52,6 @@ new function() {
 			$('#btc_updown').append("↓")
 			$('#btc_last_price').append(btc_percent+"%")
 			$('#btc_color').css({"color":"red"});
-		}else if(btc_percent == 0){
-			$('#btc_updown').append("-")
-			$('#btc_last_price').append(btc_percent+"%")
-			$('#btc_color').css({"color":"green"});
 		}
 	}
 

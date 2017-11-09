@@ -40,7 +40,11 @@ new function() {
 		$('#mona_price').append(ws_monajson["last_price"].price_raw+"円");
 		let mona_percent = (1 - ws_monajson["candles"]["1d"].open / ws_monajson["last_price"].price_raw)*100
 		mona_percent = Math.floor( mona_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
-		if(/^([1-9]\d*|0)(\.\d+)?$/.test(mona_percent)){
+		if(mona_percent == 0){
+			$('#mona_updown').append("±")
+			$('#mona_last_price').append(mona_percent+"%")
+			$('#mona_color').css({"color":"green"});
+		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(mona_percent)){
 			$('#mona_updown').append("↑")
 			$('#mona_last_price').append(`+${mona_percent}%`)
 			$('#mona_color').css({"color":"blue"});
@@ -48,10 +52,6 @@ new function() {
 			$('#mona_updown').append("↓")
 			$('#mona_last_price').append(mona_percent+"%")
 			$('#mona_color').css({"color":"red"});
-		}else if(mona_percent == 0){
-			$('#mona_updown').append("-")
-			$('#mona_last_price').append(mona_percent+"%")
-			$('#mona_color').css({"color":"green"});
 		}
 	}
 

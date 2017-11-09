@@ -40,7 +40,11 @@ new function() {
 		$('#xem_price').append(ws_xemjson["last_price"].price_raw+"円");
 		let xem_percent = (1 - ws_xemjson["candles"]["1d"].open / ws_xemjson["last_price"].price_raw)*100
 		xem_percent = Math.floor( xem_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
-		if(/^([1-9]\d*|0)(\.\d+)?$/.test(xem_percent)){
+		if(xem_percent == 0){
+			$('#xem_updown').append("±")
+			$('#xem_last_price').append(xem_percent+"%")
+			$('#xem_color').css({"color":"green"});
+		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(xem_percent)){
 			$('#xem_updown').append("↑")
 			$('#xem_last_price').append(`+${xem_percent}%`)
 			$('#xem_color').css({"color":"blue"});
@@ -48,10 +52,6 @@ new function() {
 			$('#xem_updown').append("↓")
 			$('#xem_last_price').append(xem_percent+"%")
 			$('#xem_color').css({"color":"red"});
-		}else if(xem_percent == 0){
-			$('#xem_updown').append("-")
-			$('#xem_last_price').append(xem_percent+"%")
-			$('#xem_color').css({"color":"green"});
 		}
 	}
 

@@ -40,7 +40,11 @@ new function() {
 		$('#eth_price').append(ws_ethjson["last_price"].price_raw+"円");
 		let eth_percent = (1 - ws_ethjson["candles"]["1d"].open / ws_ethjson["last_price"].price_raw)*100
 		eth_percent = Math.floor( eth_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
-		if(/^([1-9]\d*|0)(\.\d+)?$/.test(eth_percent)){
+		if(eth_percent == 0){
+			$('#eth_updown').append("±")
+			$('#eth_last_price').append(eth_percent+"%")
+			$('#eth_color').css({"color":"green"});
+		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(eth_percent)){
 			$('#eth_updown').append("↑")
 			$('#eth_last_price').append(`+${eth_percent}%`)
 			$('#eth_color').css({"color":"blue"});
@@ -48,10 +52,6 @@ new function() {
 			$('#eth_updown').append("↓")
 			$('#eth_last_price').append(eth_percent+"%")
 			$('#eth_color').css({"color":"red"});
-		}else if(bch_percent == 0){
-			$('#eth_updown').append("-")
-			$('#eth_last_price').append(eth_percent+"%")
-			$('#eth_color').css({"color":"green"});
 		}
 	}
 

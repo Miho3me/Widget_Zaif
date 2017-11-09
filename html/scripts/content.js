@@ -44,7 +44,16 @@ $(function(){
             <p id="eth_color"><span id="eth_updown"></span><span id="eth_last_price">準備中</span></p>
           </a>
         </td>
+        <td currency="zaif_token" class="widget zaif_tokentd" style="border-left:2px solid gray">
+          <a class="zaif_token price" href="https://zaif.jp/trade/zaif_jpy">
+            <img class="currency_logo" src="https://pbs.twimg.com/profile_images/572797125616885760/SAPmSoLE_400x400.png" style="width:50px;height:50px">
+            <p class="name">ZAIF</p>
+            <p id="zaif_price">価格取得中</p>
+            <p id="zaif_color"><span id="zaif_updown"></span><span id="zaif_last_price">準備中</span></p>
+          </a>
+        </td>
       </tr>
     </table>
   </div>`);
+  $("#page__trade__chat_tab_link").text("価格一覧");
 })
