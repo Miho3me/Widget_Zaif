@@ -64,6 +64,10 @@ new function() {
 	};
 }
 
-$(function() {
-	WebSocketClient_mona.init();
-});
+chrome.storage.local.get(["MONA"],function(value){
+	if(value.MONA == "show"){
+		$(function() {
+			WebSocketClient_mona.init();
+		})
+	}
+})

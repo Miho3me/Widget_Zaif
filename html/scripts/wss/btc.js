@@ -62,7 +62,10 @@ new function() {
 		}
 	};
 }
-
-$(function() {
-	WebSocketClient.init();
-});
+chrome.storage.local.get(["BTC"],function(value){
+	if(value.BTC == "show"){
+		$(function() {
+			WebSocketClient.init();
+		})
+	}
+})

@@ -20,6 +20,36 @@ $(function(){
         <p id="${currency_list[key].small}_color"><span id="${currency_list[key].small}_updown"></span><span id="${currency_list[key].small}_last_price">準備中</span></p>
       </a>
     </td>`);
-    $(".Zaif_tokentd").css({"border-left":"2px solid gray"});
   }
+  $(".Zaif_tokentd").css({"border-left":"2px solid gray"});
+  chrome.storage.local.get(["BTC"],function(value){
+    if(value.BTC == "hide"){
+      $(".bitcoind").remove();
+    }
+  })
+  chrome.storage.local.get(["XEM"],function(value){
+    if(value.XEM == "hide"){
+      $(".NEMtd").remove();
+    }
+  })
+  chrome.storage.local.get(["MONA"],function(value){
+    if(value.MONA == "hide"){
+      $(".Monacointd").remove();
+    }
+  })
+  chrome.storage.local.get(["BCH"],function(value){
+    if(value.BCH == "hide"){
+      $(".BitcoinCashtd").remove();
+    }
+  })
+  chrome.storage.local.get(["ETH"],function(value){
+    if(value.ETH == "hide"){
+      $(".Ethereumtd").remove();
+    }
+  })
+  chrome.storage.local.get(["ZAIF"],function(value){
+    if(value.ZAIF == "hide"){
+      $(".Zaif_tokentd").remove();
+    }
+  })
 })

@@ -64,6 +64,10 @@ new function() {
 	};
 }
 
-$(function() {
-	WebSocketClient_zaif.init();
-});
+chrome.storage.local.get(["ZAIF"],function(value){
+	if(value.ZAIF == "show"){
+		$(function() {
+			WebSocketClient_zaif.init();
+		})
+	}
+})

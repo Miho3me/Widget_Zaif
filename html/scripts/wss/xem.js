@@ -64,6 +64,10 @@ new function() {
 	};
 }
 
-$(function() {
-	WebSocketClient_xem.init();
-});
+chrome.storage.local.get(["XEM"],function(value){
+	if(value.XEM == "show"){
+		$(function() {
+			WebSocketClient_xem.init();
+		})
+	}
+})

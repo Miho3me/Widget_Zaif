@@ -1,8 +1,9 @@
 {
  "manifest_version": 2,
  "name": "Widget_zaif",
- "description": "version4-バグ修正。ver3にてzaifトークンに対応。次バージョンでは通貨ごとの表示/非表示機能を実装予定です。",
- "version": "4",
+ "description": "version5全ての通貨名がBTCになってしまうバグを修正。非表示機能を実装しました。オプションから非表示画面に飛べます。",
+ "version": "5",
+ "options_page": "html/options.html",
  "content_scripts": [
  {
     "matches": ["https://zaif.jp/*"],
@@ -20,7 +21,11 @@
     "run_at": "document_end"
  }
  ],
+ "background":{
+   "scripts":["html/scripts/background.js"]
+ },
  "permissions":[
-   "storage"
+   "storage",
+   "unlimitedStorage"
  ]
 }

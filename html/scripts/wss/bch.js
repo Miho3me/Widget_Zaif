@@ -64,6 +64,10 @@ new function() {
 	};
 }
 
-$(function() {
-	WebSocketClient_bch.init();
-});
+chrome.storage.local.get(["BCH"],function(value){
+	if(value.BCH == "show"){
+		$(function() {
+			WebSocketClient_bch.init();
+		})
+	}
+})

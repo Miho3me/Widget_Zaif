@@ -64,6 +64,10 @@ new function() {
 	};
 }
 
-$(function() {
-	WebSocketClient_eth.init();
-});
+chrome.storage.local.get(["ETH"],function(value){
+	if(value.ETH == "show"){
+		$(function() {
+			WebSocketClient_eth.init();
+		})
+	}
+})
