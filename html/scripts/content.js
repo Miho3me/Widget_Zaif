@@ -5,6 +5,7 @@ let currency_list = {
   "MONA":{"small":"mona","name":"Monacoin","url":"https://zaif.jp/trade_mona_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/Monacoin.png"},
   "BCH":{"small":"bch","name":"BitcoinCash","url":"https://zaif.jp/trade/bch_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/bch_logo.png"},
   "ETH":{"small":"eth","name":"Ethereum","url":"https://zaif.jp/trade/eth_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/ethereum.png"},
+  "AirFX":{"small":"airfx","name":"BTC_AirFX","url":"https://zaif.jp/trade_futures_btc_jpy/1","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/bitcoin.png"},
   "ZAIF":{"small":"zaif","name":"Zaif_token","url":"https://zaif.jp/trade/zaif_jpy","img":"https://pbs.twimg.com/profile_images/572797125616885760/SAPmSoLE_400x400.png"}
   }
 $(function(){
@@ -50,6 +51,11 @@ $(function(){
   chrome.storage.local.get(["ZAIF"],function(value){
     if(value.ZAIF == "hide"){
       $(".Zaif_tokentd").remove();
+    }
+  })
+  chrome.storage.local.get(["AirFX"],function(value){
+    if(value.AirFX == "hide"){
+      $(".BTC_AirFX").remove();
     }
   })
 })

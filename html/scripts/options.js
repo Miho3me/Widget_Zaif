@@ -1,4 +1,4 @@
-let currency_list = ["BTC","XEM","MONA","BCH","ETH","ZAIF"]
+let currency_list = ["BTC","XEM","MONA","BCH","ETH","ZAIF","AirFX"]
 let variable,click_id
 for(let i=0;i < currency_list.length;i++){
   variable = currency_list[i]
@@ -32,6 +32,11 @@ chrome.storage.local.get(["ETH"],function(value){
 chrome.storage.local.get(["ZAIF"],function(value){
   if(value.ZAIF == "show"){
     $(`#ZAIF `).prop("checked",true);
+  }
+})
+chrome.storage.local.get(["AirFX"],function(value){
+  if(value.AirFX == "show"){
+    $(`#AirFX `).prop("checked",true);
   }
 })
 $('label input[type="checkbox"]').on("click",function(){

@@ -12,6 +12,8 @@ chrome.storage.local.get(["initial_setting"],function(value){
     })
     chrome.storage.local.set({"ZAIF":"show"},function(){
     })
+    chrome.storage.local.set({"AirFX":"show"},function(){
+    })
     chrome.storage.local.set({"initial_setting":"ok"},function(){
     })
   }
