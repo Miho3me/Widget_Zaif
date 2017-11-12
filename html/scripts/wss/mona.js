@@ -44,14 +44,17 @@ new function() {
 			$('#mona_updown').append("±")
 			$('#mona_last_price').append(mona_percent+"%")
 			$('#mona_color').css({"color":"green"});
+			$('#widget_mona_color').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(mona_percent)){
 			$('#mona_updown').append("↑")
 			$('#mona_last_price').append(`+${mona_percent}%`)
 			$('#mona_color').css({"color":"blue"});
+			$('#widget_mona_color').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(mona_percent)){
 			$('#mona_updown').append("↓")
 			$('#mona_last_price').append(mona_percent+"%")
 			$('#mona_color').css({"color":"red"});
+			$('#widget_mona_color').css({"background-color":"red"});
 		}
 	}
 

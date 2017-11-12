@@ -44,14 +44,17 @@ new function() {
 			$('#airfx_updown').append("±")
 			$('#airfx_last_price').append(airfx_percent+"%")
 			$('#airfx_color').css({"color":"green"});
+			$('#widget_airfx_color').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(airfx_percent)){
 			$('#airfx_updown').append("↑")
 			$('#airfx_last_price').append(`+${airfx_percent}%`)
 			$('#airfx_color').css({"color":"blue"});
+			$('#widget_airfx_color').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(airfx_percent)){
 			$('#airfx_updown').append("↓")
 			$('#airfx_last_price').append(airfx_percent+"%")
 			$('#airfx_color').css({"color":"red"});
+			$('#widget_airfx_color').css({"background-color":"red"});
 		}
 	}
 

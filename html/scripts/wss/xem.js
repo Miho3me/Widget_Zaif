@@ -44,14 +44,17 @@ new function() {
 			$('#xem_updown').append("±")
 			$('#xem_last_price').append(xem_percent+"%")
 			$('#xem_color').css({"color":"green"});
+			$('#widget_xem_color').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(xem_percent)){
 			$('#xem_updown').append("↑")
 			$('#xem_last_price').append(`+${xem_percent}%`)
 			$('#xem_color').css({"color":"blue"});
+			$('#widget_xem_color').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(xem_percent)){
 			$('#xem_updown').append("↓")
 			$('#xem_last_price').append(xem_percent+"%")
 			$('#xem_color').css({"color":"red"});
+			$('#widget_xem_color').css({"background-color":"red"});
 		}
 	}
 

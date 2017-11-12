@@ -44,14 +44,17 @@ new function() {
 			$('#btc_updown').append("±")
 			$('#btc_last_price').append(btc_percent+"%")
 			$('#btc_color').css({"color":"green"});
+			$('#widget_btc_color').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(btc_percent)){
 			$('#btc_updown').append("↑")
 			$('#btc_last_price').append(`+${btc_percent}%`)
 			$('#btc_color').css({"color":"blue"});
+			$('#widget_btc_color').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(btc_percent)){
 			$('#btc_updown').append("↓")
 			$('#btc_last_price').append(btc_percent+"%")
 			$('#btc_color').css({"color":"red"});
+			$('#widget_btc_color').css({"background-color":"red"});
 		}
 	}
 

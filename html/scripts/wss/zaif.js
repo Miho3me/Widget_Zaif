@@ -44,14 +44,17 @@ new function() {
 			$('#zaif_updown').append("±")
 			$('#zaif_last_price').append(zaif_percent+"%")
 			$('#zaif_color').css({"color":"green"});
+			$('#widget_zaif_color').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(zaif_percent)){
 			$('#zaif_updown').append("↑")
 			$('#zaif_last_price').append(`+${zaif_percent}%`)
 			$('#zaif_color').css({"color":"blue"});
+			$('#widget_zaif_color').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(zaif_percent)){
 			$('#zaif_updown').append("↓")
 			$('#zaif_last_price').append(zaif_percent+"%")
 			$('#zaif_color').css({"color":"red"});
+			$('#widget_zaif_color').css({"background-color":"red"});
 		}
 	}
 

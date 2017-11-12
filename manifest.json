@@ -1,9 +1,12 @@
 {
  "manifest_version": 2,
  "name": "Widget_zaif",
- "description": "version6-AirFXを追加。オプション画面から機能要望フォームに飛べます。不便だと思う点などをお書きください・。・",
- "version": "6",
+ "description": "version7-神アプデです。\nオプション画面から価格一覧の表示場所を変更できるようにしました。チャットを価格一覧に大変身させると結構見やすいです。",
+ "version": "7",
  "options_page": "html/options.html",
+ "background":{
+   "scripts":["html/scripts/background.js"]
+ },
  "content_scripts": [
  {
     "matches": ["https://zaif.jp/*"],
@@ -22,9 +25,6 @@
     "run_at": "document_end"
  }
  ],
- "background":{
-   "scripts":["html/scripts/background.js"]
- },
  "permissions":[
    "storage",
    "unlimitedStorage"

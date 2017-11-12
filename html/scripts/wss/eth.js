@@ -44,14 +44,17 @@ new function() {
 			$('#eth_updown').append("±")
 			$('#eth_last_price').append(eth_percent+"%")
 			$('#eth_color').css({"color":"green"});
+			$('#widget_eth_color').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(eth_percent)){
 			$('#eth_updown').append("↑")
 			$('#eth_last_price').append(`+${eth_percent}%`)
 			$('#eth_color').css({"color":"blue"});
+			$('#widget_eth_color').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(eth_percent)){
 			$('#eth_updown').append("↓")
 			$('#eth_last_price').append(eth_percent+"%")
 			$('#eth_color').css({"color":"red"});
+			$('#widget_eth_color').css({"background-color":"red"});
 		}
 	}
 
