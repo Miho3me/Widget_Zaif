@@ -1,19 +1,19 @@
 /* 共通設定 */
-.currency_logo{
-  height:40px;
-  width:40px;
-}
-.BitcoinCash .currency_logo{
-  height:24px;
-  width:40px;
-  margin: 8px 0px;
-}
 /* 共通設定 */
 #widget-ex{
   background-color: #F2F2F2;
 }
 .widget{
   background-color: white;
+}
+.widget .currency_logo{
+  height:50px;
+  width:50px;
+}
+.widget .BitcoinCash .currency_logo{
+  height:30px;
+  width:50px;
+  margin: 10px 0px;
 }
 .currency_table{
   width:80%;
@@ -37,6 +37,15 @@
 /* ここまでheader */
 
 /*  */
+.chat-widget .currency_logo{
+  height:40px;
+  width:40px;
+}
+.chat-widget .BitcoinCash .currency_logo{
+  height:24px;
+  width:40px;
+  margin: 8px 0px;
+}
 .chat-widget span{
   display:inline-block;
 }
