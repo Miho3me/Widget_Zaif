@@ -72,3 +72,9 @@ chrome.storage.local.get(["BTC"],function(value){
 		})
 	}
 })
+$(function(){
+	setInterval(function(){
+		WebSocketClient.init();
+		console.log("ReConnecting")
+	},120000)
+})

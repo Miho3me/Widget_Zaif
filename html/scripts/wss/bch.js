@@ -76,3 +76,9 @@ chrome.storage.local.get(["BCH"],function(value){
 		})
 	}
 })
+$(function(){
+	setInterval(function(){
+		WebSocketClient_bch.init();
+		console.log("ReConnecting")
+	},120000)
+})

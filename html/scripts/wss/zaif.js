@@ -74,3 +74,9 @@ chrome.storage.local.get(["ZAIF"],function(value){
 		})
 	}
 })
+$(function(){
+	setInterval(function(){
+		WebSocketClient_zaif.init();
+		console.log("ReConnecting")
+	},120000)
+})

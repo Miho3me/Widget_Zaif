@@ -1,8 +1,8 @@
 {
  "manifest_version": 2,
  "name": "Widget_zaif",
- "description": "version7-神アプデです。\nオプション画面から価格一覧の表示場所を変更できるようにしました。チャットを価格一覧に大変身させると結構見やすいです。",
- "version": "7",
+ "description": "version7.1-デザインの細かな修正を行いました。",
+ "version": "7.1",
  "options_page": "html/options.html",
  "background":{
    "scripts":["html/scripts/background.js"]

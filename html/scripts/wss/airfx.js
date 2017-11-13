@@ -74,3 +74,9 @@ chrome.storage.local.get(["AirFX"],function(value){
 		})
 	}
 })
+$(function(){
+	setInterval(function(){
+		WebSocketClient_airfx.init();
+		console.log("ReConnecting")
+	},120000)
+})

@@ -74,3 +74,9 @@ chrome.storage.local.get(["ETH"],function(value){
 		})
 	}
 })
+$(function(){
+	setInterval(function(){
+		WebSocketClient_eth.init();
+		console.log("ReConnecting")
+	},120000)
+})

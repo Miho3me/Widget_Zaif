@@ -74,3 +74,9 @@ chrome.storage.local.get(["MONA"],function(value){
 		})
 	}
 })
+$(function(){
+	setInterval(function(){
+		WebSocketClient_mona.init();
+		console.log("ReConnecting")
+	},120000)
+})

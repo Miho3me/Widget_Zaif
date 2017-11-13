@@ -74,3 +74,9 @@ chrome.storage.local.get(["XEM"],function(value){
 		})
 	}
 })
+$(function(){
+	setInterval(function(){
+		WebSocketClient_xem.init();
+		console.log("ReConnecting")
+	},120000)
+})
