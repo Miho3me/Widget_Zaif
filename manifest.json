@@ -1,7 +1,7 @@
 {
  "manifest_version": 2,
  "name": "Widget_zaif",
- "description": "version7.1-デザインの細かな修正を行いました。",
+ "description": "version7.1-デザインの細かな修正を行いました。また、価格取得APIのタイムアウトを防ぐため、一定時間に再接続する処理を実装。",
  "version": "7.1",
  "options_page": "html/options.html",
  "background":{
