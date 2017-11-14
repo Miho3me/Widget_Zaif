@@ -1,63 +1,68 @@
-/* 共通設定 */
-/* 共通設定 */
-#widget-ex{
+/* ここからheader_widget */
+#header_widget{
   background-color: #F2F2F2;
 }
-.widget{
+#header_currency_table{
+  width:80%;
+  max-width: 600px;
+}
+.header_widget_td{
   background-color: white;
 }
-.widget .currency_logo{
+.header_widget_td .currency_logo{
   height:50px;
   width:50px;
 }
-.widget .BitcoinCash .currency_logo{
+.header_widget_td .BitcoinCash .currency_logo{
   height:30px;
   width:50px;
   margin: 10px 0px;
 }
-.currency_table{
-  width:80%;
-  max-width: 600px;
-}
-
-.widget td{
+.header_widget_td{
   width:55px;
   height:88px;
 }
-
-.widget a{
+.header_widget_td a{
+  display: block;
+  text-decoration:none;
   color:inherit;
   font-size: 80%;
-
 }
-.widget p{
+.header_widget_td a:hover{
+  background-color:#DDDDDD;
+  text-decoration:none;
+  color:inherit;
+}
+.header_widget_td p{
   margin:0;
   text-align: center;
 }
 /* ここまでheader */
 
-/*  */
-.chat-widget .currency_logo{
+/* ここからchat_header */
+.chat_widget_div .currency_logo{
   height:40px;
   width:40px;
+  margin-left: 5px;
 }
-.chat-widget .BitcoinCash .currency_logo{
+.chat_widget_div .BitcoinCash .currency_logo{
   height:24px;
   width:40px;
   margin: 8px 0px;
+  margin-left: 5px;
 }
-.chat-widget span{
+.chat_widget_div span{
   display:inline-block;
 }
-.chat-widget a{
+.chat_widget_div a{
   display: block;
-  text-decoration: none ;
+  text-decoration:none;
   color:inherit;
   font-size:130%;
 }
-.chat-widget a:hover{
-  background-color: #DDDDDD;
-  text-decoration: none ;
+.chat_widget_div a:hover{
+  background-color:#DDDDDD;
+  text-decoration:none;
   color:inherit;
 }
 .chat-currency_name{
@@ -75,7 +80,7 @@
 .priceheight{
   padding-top: 1px;
 }
-.widget-border{
+.chat_widget_div{
   padding:5px 0px;
   border-top: solid 1px #DDDDDD;
   border-bottom: solid 1px #DDDDDD;

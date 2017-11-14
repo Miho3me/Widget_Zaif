@@ -34,27 +34,27 @@ new function() {
 
 	let addMessage_xem = function(data) {
 		let ws_xemjson = JSON.parse(data);
-		$('#xem_price').empty();
+		$('#widget_xem_price').empty();
 		$('#xem_updown').empty();
-		$('#xem_last_price').empty();
-		$('#xem_price').append(ws_xemjson["last_price"].price_raw+"円");
+		$('#xem_percent').empty();
+		$('#widget_xem_price').append(ws_xemjson["last_price"].price_raw+"円");
 		let xem_percent = (1 - ws_xemjson["candles"]["1d"].open / ws_xemjson["last_price"].price_raw)*100
 		xem_percent = Math.floor( xem_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
 		if(xem_percent == 0){
 			$('#xem_updown').append("±")
-			$('#xem_last_price').append(xem_percent+"%")
-			$('#xem_color').css({"color":"green"});
-			$('#widget_xem_color').css({"background-color":"#DDDDDD"});
+			$('#xem_percent').append(xem_percent+"%")
+			$('#header_widget_xem_ROC').css({"color":"green"});
+			$('#chat_widget_xem_ROC').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(xem_percent)){
 			$('#xem_updown').append("↑")
-			$('#xem_last_price').append(`+${xem_percent}%`)
-			$('#xem_color').css({"color":"blue"});
-			$('#widget_xem_color').css({"background-color":"limegreen"});
+			$('#xem_percent').append(`+${xem_percent}%`)
+			$('#header_widget_xem_ROC').css({"color":"blue"});
+			$('#chat_widget_xem_ROC').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(xem_percent)){
 			$('#xem_updown').append("↓")
-			$('#xem_last_price').append(xem_percent+"%")
-			$('#xem_color').css({"color":"red"});
-			$('#widget_xem_color').css({"background-color":"red"});
+			$('#xem_percent').append(xem_percent+"%")
+			$('#header_widget_xem_ROC').css({"color":"red"});
+			$('#chat_widget_xem_ROC').css({"background-color":"red"});
 		}
 	}
 

@@ -34,27 +34,27 @@ new function() {
 
 	let addMessage_airfx = function(data) {
     let ws_airfxjson = JSON.parse(data);
-		$('#airfx_price').empty();
+		$('#widget_airfx_price').empty();
 		$('#airfx_updown').empty();
-		$('#airfx_last_price').empty();
-		$('#airfx_price').append(ws_airfxjson["last_price"].price_raw+"円");
+		$('#airfx_percent').empty();
+		$('#widget_airfx_price').append(ws_airfxjson["last_price"].price_raw+"円");
 		let airfx_percent = (1 - ws_airfxjson["candles"]["1d"].open / ws_airfxjson["last_price"].price_raw)*100
 		airfx_percent = Math.floor( airfx_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
 		if(airfx_percent == 0){
 			$('#airfx_updown').append("±")
-			$('#airfx_last_price').append(airfx_percent+"%")
-			$('#airfx_color').css({"color":"green"});
-			$('#widget_airfx_color').css({"background-color":"#DDDDDD"});
+			$('#airfx_percent').append(airfx_percent+"%")
+			$('#header_widget_airfx_ROC').css({"color":"green"});
+			$('#chat_widget_airfx_ROC').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(airfx_percent)){
 			$('#airfx_updown').append("↑")
-			$('#airfx_last_price').append(`+${airfx_percent}%`)
-			$('#airfx_color').css({"color":"blue"});
-			$('#widget_airfx_color').css({"background-color":"limegreen"});
+			$('#airfx_percent').append(`+${airfx_percent}%`)
+			$('#header_widget_airfx_ROC').css({"color":"blue"});
+			$('#chat_widget_airfx_ROC').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(airfx_percent)){
 			$('#airfx_updown').append("↓")
-			$('#airfx_last_price').append(airfx_percent+"%")
-			$('#airfx_color').css({"color":"red"});
-			$('#widget_airfx_color').css({"background-color":"red"});
+			$('#airfx_percent').append(airfx_percent+"%")
+			$('#header_widget_airfx_ROC').css({"color":"red"});
+			$('#chat_widget_airfx_ROC').css({"background-color":"red"});
 		}
 	}
 

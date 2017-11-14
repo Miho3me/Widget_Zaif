@@ -34,27 +34,27 @@ new function() {
 
 	let addMessage_eth = function(data) {
 		let ws_ethjson = JSON.parse(data);
-		$('#eth_price').empty();
+		$('#widget_eth_price').empty();
 		$('#eth_updown').empty();
-		$('#eth_last_price').empty();
-		$('#eth_price').append(ws_ethjson["last_price"].price_raw+"円");
+		$('#eth_percent').empty();
+		$('#widget_eth_price').append(ws_ethjson["last_price"].price_raw+"円");
 		let eth_percent = (1 - ws_ethjson["candles"]["1d"].open / ws_ethjson["last_price"].price_raw)*100
 		eth_percent = Math.floor( eth_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
 		if(eth_percent == 0){
 			$('#eth_updown').append("±")
-			$('#eth_last_price').append(eth_percent+"%")
-			$('#eth_color').css({"color":"green"});
-			$('#widget_eth_color').css({"background-color":"#DDDDDD"});
+			$('#eth_percent').append(eth_percent+"%")
+			$('#header_widget_eth_ROC').css({"color":"green"});
+			$('#chat_widget_eth_ROC').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(eth_percent)){
 			$('#eth_updown').append("↑")
-			$('#eth_last_price').append(`+${eth_percent}%`)
-			$('#eth_color').css({"color":"blue"});
-			$('#widget_eth_color').css({"background-color":"limegreen"});
+			$('#eth_percent').append(`+${eth_percent}%`)
+			$('#header_widget_eth_ROC').css({"color":"blue"});
+			$('#chat_widget_eth_ROC').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(eth_percent)){
 			$('#eth_updown').append("↓")
-			$('#eth_last_price').append(eth_percent+"%")
-			$('#eth_color').css({"color":"red"});
-			$('#widget_eth_color').css({"background-color":"red"});
+			$('#eth_percent').append(eth_percent+"%")
+			$('#header_widget_eth_ROC').css({"color":"red"});
+			$('#chat_widget_eth_ROC').css({"background-color":"red"});
 		}
 	}
 

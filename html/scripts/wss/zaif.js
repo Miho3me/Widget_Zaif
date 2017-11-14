@@ -34,27 +34,27 @@ new function() {
 
 	let addMessage_zaif = function(data) {
     let ws_zaifjson = JSON.parse(data);
-		$('#zaif_price').empty();
+		$('#widget_zaif_price').empty();
 		$('#zaif_updown').empty();
-		$('#zaif_last_price').empty();
-		$('#zaif_price').append(ws_zaifjson["last_price"].price_raw+"円");
+		$('#zaif_percent').empty();
+		$('#widget_zaif_price').append(ws_zaifjson["last_price"].price_raw+"円");
 		let zaif_percent = (1 - ws_zaifjson["candles"]["1d"].open / ws_zaifjson["last_price"].price_raw)*100
 		zaif_percent = Math.floor( zaif_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
 		if(zaif_percent == 0){
 			$('#zaif_updown').append("±")
-			$('#zaif_last_price').append(zaif_percent+"%")
-			$('#zaif_color').css({"color":"green"});
-			$('#widget_zaif_color').css({"background-color":"#DDDDDD"});
+			$('#zaif_percent').append(zaif_percent+"%")
+			$('#header_widget_zaif_ROC').css({"color":"green"});
+			$('#chat_widget_zaif_ROC').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(zaif_percent)){
 			$('#zaif_updown').append("↑")
-			$('#zaif_last_price').append(`+${zaif_percent}%`)
-			$('#zaif_color').css({"color":"blue"});
-			$('#widget_zaif_color').css({"background-color":"limegreen"});
+			$('#zaif_percent').append(`+${zaif_percent}%`)
+			$('#header_widget_zaif_ROC').css({"color":"blue"});
+			$('#chat_widget_zaif_ROC').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(zaif_percent)){
 			$('#zaif_updown').append("↓")
-			$('#zaif_last_price').append(zaif_percent+"%")
-			$('#zaif_color').css({"color":"red"});
-			$('#widget_zaif_color').css({"background-color":"red"});
+			$('#zaif_percent').append(zaif_percent+"%")
+			$('#header_widget_zaif_ROC').css({"color":"red"});
+			$('#chat_widget_zaif_ROC').css({"background-color":"red"});
 		}
 	}
 

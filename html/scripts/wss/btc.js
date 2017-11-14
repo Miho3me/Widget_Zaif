@@ -34,27 +34,27 @@ new function() {
 
 	let addMessage = function(data) {
     let wsjson = JSON.parse(data);
-    $('#btc_price').empty();
+    $('#widget_btc_price').empty();
 		$('#btc_updown').empty();
-		$('#btc_last_price').empty();
-    $('#btc_price').append(wsjson["last_price"].price_raw+"円");
+		$('#btc_percent').empty();
+    $('#widget_btc_price').append(wsjson["last_price"].price_raw+"円");
 		let btc_percent = (1 - wsjson["candles"]["1d"].open / wsjson["last_price"].price_raw)*100
 		btc_percent = Math.floor( btc_percent * Math.pow( 10, widget_n ) ) / Math.pow( 10, widget_n )
 		if(btc_percent == 0){
 			$('#btc_updown').append("±")
-			$('#btc_last_price').append(btc_percent+"%")
-			$('#btc_color').css({"color":"green"});
-			$('#widget_btc_color').css({"background-color":"#DDDDDD"});
+			$('#btc_percent').append(btc_percent+"%")
+			$('#header_widget_btc_ROC').css({"color":"green"});
+			$('#chat_widget_btc_ROC').css({"background-color":"#DDDDDD"});
 		}else if(/^([1-9]\d*|0)(\.\d+)?$/.test(btc_percent)){
 			$('#btc_updown').append("↑")
-			$('#btc_last_price').append(`+${btc_percent}%`)
-			$('#btc_color').css({"color":"blue"});
-			$('#widget_btc_color').css({"background-color":"limegreen"});
+			$('#btc_percent').append(`+${btc_percent}%`)
+			$('#header_widget_btc_ROC').css({"color":"blue"});
+			$('#chat_widget_btc_ROC').css({"background-color":"limegreen"});
 		}else if(/^[-]?([1-9]\d*|0)(\.\d+)?$/.test(btc_percent)){
 			$('#btc_updown').append("↓")
-			$('#btc_last_price').append(btc_percent+"%")
-			$('#btc_color').css({"color":"red"});
-			$('#widget_btc_color').css({"background-color":"red"});
+			$('#btc_percent').append(btc_percent+"%")
+			$('#header_widget_btc_ROC').css({"color":"red"});
+			$('#chat_widget_btc_ROC').css({"background-color":"red"});
 		}
 	}
 

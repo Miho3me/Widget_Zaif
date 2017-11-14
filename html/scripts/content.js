@@ -11,17 +11,17 @@ let currency_list = {
 $(function(){
   chrome.storage.local.get(["view_location"],function(value){
     if(value.view_location == "header"){
-      $("#header_message").after(`<div style="height:100px;padding:0px 10px 10px 10px" id="widget-ex">
-        <table align="center" class="currency_table" style="text-align: center"><tr></tr></table>
+      $("#header_message").after(`<div style="height:100px;padding:0px 10px 10px 10px" id="header_widget">
+        <table align="center" id="header_currency_table" style="text-align: center"><tr></tr></table>
       </div>`);
       for(key in currency_list){
         console.log(key)
-        $(".currency_table tr").append(`<td currency="${currency_list[key].name}" class="widget ${currency_list[key].name}td">
+        $("#header_currency_table tr").append(`<td class="header_widget_td ${currency_list[key].name}td">
           <a class="price ${currency_list[key].name}" href="${currency_list[key].url}">
             <img class="currency_logo" src="${currency_list[key].img}">
             <p class="name">${key}</p>
-            <p id="${currency_list[key].small}_price">価格取得中...</p>
-            <p id="${currency_list[key].small}_color"><span id="${currency_list[key].small}_updown"></span><span id="${currency_list[key].small}_last_price">準備中</span></p>
+            <p id="widget_${currency_list[key].small}_price">価格取得中...</p>
+            <p id="header_widget_${currency_list[key].small}_ROC"><span id="${currency_list[key].small}_updown"></span><span id="${currency_list[key].small}_percent">準備中</span></p>
           </a>
         </td>`);
       }
@@ -33,14 +33,14 @@ $(function(){
         <div align="center" class="chat-currency_table"></div>
       </div>`);
       for(key in currency_list){
-        $(".chat-currency_table").append(`<div currency="${currency_list[key].name}" class="widget-border chat-widget ${currency_list[key].name}td">
+        $(".chat-currency_table").append(`<div class="chat_widget_div ${currency_list[key].name}td">
           <a class="${currency_list[key].name}" href="${currency_list[key].url}">
             <img class="currency_logo" src="${currency_list[key].img}" vertical-align:middle;>
             <span class="chat-currency_name">${key}</span>
             <span class="widget-price">
-              <span class="inprice"id="${currency_list[key].small}_price">価格取得中...</span>
-              <span class="widget_percent" id="widget_${currency_list[key].small}_color">
-                <span class="priceheight" id="${currency_list[key].small}_last_price">準備中</span>
+              <span class="inprice" id="widget_${currency_list[key].small}_price">価格取得中...</span>
+              <span class="widget_percent" id="chat_widget_${currency_list[key].small}_ROC">
+                <span class="priceheight" id="${currency_list[key].small}_percent">準備中</span>
               </span>
             </span>
           </a>
