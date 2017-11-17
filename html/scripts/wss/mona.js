@@ -76,7 +76,11 @@ chrome.storage.local.get(["MONA"],function(value){
 })
 $(function(){
 	setInterval(function(){
-		WebSocketClient_mona.init();
-		console.log("ReConnecting")
-	},120000)
+		chrome.storage.local.get(["MONA"],function(value){
+			if(value.MONA == "show"){
+				WebSocketClient_mona.init();
+				console.log("ReConnecting")
+			}
+		})
+	},reconnecting_time)
 })

@@ -1,4 +1,3 @@
-let widget_n = 2;
 let currency_list = {
   "BTC":{"small":"btc","name":"bitcoin","url":"https://zaif.jp/trade_btc_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/bitcoin.png"},
   "XEM":{"small":"xem","name":"NEM","url":"https://zaif.jp/trade_xem_jpy","img":"https://raw.githubusercontent.com/Miho3me/widget_logo/master/nem.png"},
