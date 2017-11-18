@@ -74,13 +74,3 @@ chrome.storage.local.get(["XEM"],function(value){
 		})
 	}
 })
-$(function(){
-	setInterval(function(){
-		chrome.storage.local.get(["XE<"],function(value){
-			if(value.XEM == "show"){
-				WebSocketClient_xem.init();
-				console.log("ReConnecting")
-			}
-		})
-	},reconnecting_time)
-})

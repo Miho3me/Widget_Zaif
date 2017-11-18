@@ -72,13 +72,3 @@ chrome.storage.local.get(["BTC"],function(value){
 		})
 	}
 })
-$(function(){
-	setInterval(function(){
-		chrome.storage.local.get(["ETH"],function(value){
-			if(value.ETH == "show"){
-				WebSocketClient_eth.init();
-				console.log("ReConnecting")
-			}
-		})
-	},reconnecting_time)
-})

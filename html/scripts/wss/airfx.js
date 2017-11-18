@@ -74,13 +74,3 @@ chrome.storage.local.get(["AirFX"],function(value){
 		})
 	}
 })
-$(function(){
-	setInterval(function(){
-		chrome.storage.local.get(["AirFX"],function(value){
-			if(value.AirFX == "show"){
-				WebSocketClient_airfx.init();
-				console.log("ReConnecting")
-			}
-		})
-	},reconnecting_time)
-})

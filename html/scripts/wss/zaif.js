@@ -74,13 +74,3 @@ chrome.storage.local.get(["ZAIF"],function(value){
 		})
 	}
 })
-$(function(){
-	setInterval(function(){
-		chrome.storage.local.get(["ZAIF"],function(value){
-			if(value.ZAIF == "show"){
-				WebSocketClient_zaif.init();
-				console.log("ReConnecting")
-			}
-		})
-	},reconnecting_time)
-})

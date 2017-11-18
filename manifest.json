@@ -1,8 +1,8 @@
 {
  "manifest_version": 2,
  "name": "Widget_zaif",
- "description": "version7.1.1-たまにAPIアクセス禁止を食らうことがあるみたいなので、価格取得APIの再接続間隔を5分にしました。。。",
- "version": "7.1.1",
+ "description": "version7.2-規制回避のため、再接続機能を削除しました。目処がたったら再実装を考えています。",
+ "version": "7.2",
  "options_page": "html/options.html",
  "background":{
    "scripts":["html/scripts/background.js"]
