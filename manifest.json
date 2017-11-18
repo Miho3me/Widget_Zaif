@@ -1,8 +1,8 @@
 {
  "manifest_version": 2,
  "name": "Widget_zaif",
- "description": "version7.2-規制回避のため、再接続機能を削除しました。目処がたったら再実装を考えています。",
- "version": "7.2",
+ "description": "version7.3-重要通知を飛ばすためのアップデートです。",
+ "version": "7.3",
  "options_page": "html/options.html",
  "background":{
    "scripts":["html/scripts/background.js"]

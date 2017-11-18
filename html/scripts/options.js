@@ -1,3 +1,4 @@
+
 let currency_list = ["BTC","XEM","MONA","BCH","ETH","ZAIF","AirFX"]
 let view_location_list = ["header","chat"]
 let variable,click_id
@@ -47,6 +48,14 @@ chrome.storage.local.get(["view_location"],function(value){
     $("#chat").prop("checked",true);
   }
 })
+//====================ver7.3の重要な通知======================//
+$("#important_notification_ul").append('<li><label><input type="checkbox" id="important_notification">重要な通知を読みました</label></li>')
+chrome.storage.local.get(["important_notification"],function(value){
+  if(value.important_notification == "show"){
+    $(`#important_notification`).prop("checked",true);
+  }
+})
+//==========================================================//
 for(let i=0;i < view_location_list.length;i++){
   $("#view_location").append(`<li><label><input type="radio" name="location_radio" id="${view_location_list[i]}">${view_location_list[i]}に表示する</label></li>`)
 }
